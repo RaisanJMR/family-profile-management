@@ -2,23 +2,19 @@ import { Divider, Stack } from '@mui/material'
 import Header from './component/Header'
 import PersonalDetails from './component/PersonalDetails'
 import Container from '@mui/material/Container'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import AddMember from './pages/AddMember'
 
 function App() {
   return (
     <>
-      <Header />
-      <Container>
-        <Stack
-          sx={{ width: '40%' }}
-          direction='row'
-          spacing={2}
-          justifyContent='space-between'
-          divider={<Divider orientation='vertical' flexItem />}
-          alignItems='center'>
-          <PersonalDetails />
-  
-        </Stack>
-      </Container>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/add' element={<AddMember />} />
+        </Routes>
+      </Router>
     </>
   )
 }

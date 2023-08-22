@@ -20,5 +20,5 @@ export const familySchema = yup.object().shape({
   phone: yup
     .string()
     .matches(phoneNumberRules, { message: 'please add a valid phone number' })
-    .required('phone number required'),
+    // .required('phone number required'),
 })

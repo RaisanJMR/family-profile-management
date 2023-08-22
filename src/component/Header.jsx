@@ -11,13 +11,11 @@ const HeaderStyles = styled(Toolbar)({
 })
 const Header = () => {
     return (
-        <AppBar position='static'>
+        <AppBar position='static' sx={{ marginBottom: "50px" }}>
             <HeaderStyles>
-                {/* <Toolbar> */}
-                    <Typography variant="h6" gutterBottom>
-                        family profile
-                    </Typography>
-                {/* </Toolbar> */}
+                <Typography variant="h6" gutterBottom>
+                    family profile
+                </Typography>
             </HeaderStyles>
         </AppBar>
     )
