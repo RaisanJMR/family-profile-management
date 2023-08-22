@@ -1,6 +1,5 @@
 import { Button, Modal, TextField, Typography } from '@mui/material'
 import Box from '@mui/material/Box'
-import { useState } from 'react'
 import { useFormik } from "formik"
 import { familySchema } from "../schemas"
 
@@ -61,7 +60,6 @@ const AddMemberModal = () => {
                         <Button type='submit' variant="contained">Add member</Button>
                     </Box>
                 </form>
-
             </Box>
         </>
     )

@@ -9,6 +9,11 @@ import {
 import { db } from '../firebase'
 import { createContext, useState } from 'react'
 
+// ************* THIS FILE IS CURRENTLY NOT IN USE *************************
+// ************* THIS FILE IS CURRENTLY NOT IN USE *************************
+// ************* THIS FILE IS CURRENTLY NOT IN USE *************************
+// ************* THIS FILE IS CURRENTLY NOT IN USE *************************
+
 const FamilyContext = createContext()
 
 export const FamilyProvider = ({ children }) => {
@@ -22,7 +27,6 @@ export const FamilyProvider = ({ children }) => {
           ...doc.data(),
           id: doc.id,
         }))
-        console.log(newMembers)
         setMembers(newMembers)
       })
     } catch (error) {
