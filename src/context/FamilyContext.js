@@ -1,53 +1,28 @@
-import {
-  onSnapshot,
-  collection,
-  query,
-  orderBy,
-  doc,
-  deleteDoc,
-} from 'firebase/firestore'
-import { db } from '../firebase'
 import { createContext, useState } from 'react'
 
-// ************* THIS FILE IS CURRENTLY NOT IN USE *************************
-// ************* THIS FILE IS CURRENTLY NOT IN USE *************************
-// ************* THIS FILE IS CURRENTLY NOT IN USE *************************
-// ************* THIS FILE IS CURRENTLY NOT IN USE *************************
 
 const FamilyContext = createContext()
 
 export const FamilyProvider = ({ children }) => {
-  const [member, setMembers] = useState([])
+  const [members, setMembers] = useState([])
+
   const getFamilyMembers = () => {
-    const collectionReference = collection(db, 'members')
-    const q = query(collectionReference, orderBy('createdAt'))
-    try {
-      onSnapshot(q, (snap) => {
-        const newMembers = snap.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }))
-        setMembers(newMembers)
-      })
-    } catch (error) {
-      console.log('ERROR FETCHING DATA', error)
-    }
+    const existingMembers = JSON.parse(localStorage.getItem('members')) || []
+    setMembers(existingMembers)
   }
 
-  const deleteFamilyMember = (id) => {
-    const documentRef = doc(db, 'members', id)
-    deleteDoc(documentRef)
-      .then(() => {
-        alert('DATA DELETED')
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+  const deleteFamilyMember = (memberId) => {
+    alert("confirm deletion")
+    const existingMembers = JSON.parse(localStorage.getItem('members')) || []
+    const updatedMembers = existingMembers.filter(
+      (member) => member.id !== memberId
+    )
+    localStorage.setItem('members', JSON.stringify(updatedMembers))
   }
 
   return (
     <FamilyContext.Provider
-      value={{ member, getFamilyMembers, deleteFamilyMember }}>
+      value={{ members, getFamilyMembers, deleteFamilyMember }}>
       {children}
     </FamilyContext.Provider>
   )

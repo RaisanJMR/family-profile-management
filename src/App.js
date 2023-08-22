@@ -1,7 +1,4 @@
-import { Divider, Stack } from '@mui/material'
-import Header from './component/Header'
-import PersonalDetails from './component/PersonalDetails'
-import Container from '@mui/material/Container'
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import AddMember from './pages/AddMember'

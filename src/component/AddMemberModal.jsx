@@ -1,4 +1,4 @@
-import { Button, Modal, TextField, Typography } from '@mui/material'
+import { Button, TextField } from '@mui/material'
 import Box from '@mui/material/Box'
 import { useFormik } from "formik"
 import { familySchema } from "../schemas"
@@ -11,7 +11,6 @@ const AddMemberModal = () => {
         const newMember = {
             id: Math.ceil(Math.random() * 1000), name, age, phone: age <= 18 ? "no phone" : phone
         }
-        console.log(newMember)
         const existingMembers = JSON.parse(localStorage.getItem("members")) || [];
         const updatedMembers = [...existingMembers, newMember];
         localStorage.setItem("members", JSON.stringify(updatedMembers));

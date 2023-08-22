@@ -1,4 +1,4 @@
-import { Container, Divider, Stack } from '@mui/material'
+import { Container, Stack } from '@mui/material'
 import React from 'react'
 import Header from '../component/Header'
 import PersonalDetails from '../component/PersonalDetails'

@@ -1,6 +1,7 @@
 import * as yup from 'yup'
 
 // regex for any indian phone number format
+// eslint-disable-next-line
 const phoneNumberRules = /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$/gm
 
 // User schema
